@@ -1,0 +1,35 @@
+import { ReactNode } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import Colors from '../../constants/colors';
+
+interface GuessedNumberProp {
+  children: ReactNode;
+}
+function GuessedNumber({ children }: GuessedNumberProp) {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.numberText}>{children}</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    fontFamily: 'open-sans-bold',
+    borderWidth: 4,
+    borderColor: Colors.accent500,
+    padding: 24,
+    borderRadius: 8,
+    margin: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  numberText: {
+    fontFamily: 'open-sans-bold',
+    color: Colors.accent500,
+    fontSize: 36,
+  },
+});
+
+export default GuessedNumber;
