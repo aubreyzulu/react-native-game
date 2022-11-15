@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { Platform, StyleSheet, Text } from 'react-native';
 
 interface TitleProps {
   children: ReactNode;
@@ -16,8 +16,11 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: 'white',
     textAlign: 'center',
-    borderWidth: 2,
+    // borderWidth: Platform.OS === 'android' ? 2 : 0,
+    borderWidth: Platform.select({ ios: 0, android: 2 }),
     borderColor: 'white',
     padding: 12,
+    maxWidth: '80%',
+    width: 300,
   },
 });

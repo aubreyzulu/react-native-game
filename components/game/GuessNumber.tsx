@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import Colors from '../../constants/colors';
 
 interface GuessedNumberProp {
@@ -13,14 +13,16 @@ function GuessedNumber({ children }: GuessedNumberProp) {
   );
 }
 
+const deviceWidth = Dimensions.get('window').width;
+
 const styles = StyleSheet.create({
   container: {
     fontFamily: 'open-sans-bold',
     borderWidth: 4,
     borderColor: Colors.accent500,
-    padding: 24,
+    padding: deviceWidth < 380 ? 12 : 24,
     borderRadius: 8,
-    margin: 24,
+    margin: deviceWidth < 380 ? 12 : 24,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -28,7 +30,7 @@ const styles = StyleSheet.create({
   numberText: {
     fontFamily: 'open-sans-bold',
     color: Colors.accent500,
-    fontSize: 36,
+    fontSize: deviceWidth < 380 ? 28 : 36,
   },
 });
 
